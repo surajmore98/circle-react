@@ -19,6 +19,7 @@ export const useNavigator = () => {
                 navigate("/logout");
                 break;
             default:
+                navigate("/notfound")
                 break;    
         }
     }

@@ -19,7 +19,6 @@ export const Navbar = () => {
          height="3.5rem" position="fixed" top={0} zIndex="sticky" gap={4}>
             <Heading cursor="pointer" onClick={() => navigateTo(HOME)}>Circle</Heading>
             <Flex justifyContent="flex-end" alignItems="center">
-                <SearchUsers/>
                 <IconButton
                     aria-label={ colorMode === "dark" ? "light" : "dark" }
                     bg="transparent"
@@ -29,38 +28,40 @@ export const Navbar = () => {
                     borderRadius="full"
                 />
                 {   auth.token &&
-                    <Popover>
-                        <PopoverTrigger>
-                            <IconButton variant="ghost" borderRadius="full" p={0}>
-                                <Avatar
-                                 name={auth.user ? auth.user.username : ""}  
-                                 size="sm"
-                                 borderRadius="full"/>
-                            </IconButton>
-                        </PopoverTrigger>
-                        <PopoverContent borderRadius={0} width="sm">
-                            <PopoverBody>
-                                <Link as={ReachLink} to={`/profile/${auth.user._id}`} width="full"
-                                    my={1} p={2} display="flex" alignItems="end"
-                                    justifyContent="start" _hover={{
-                                        background: "gray.100",
-                                        color: "cyan.500",
-                                    }}>
-                                    <Box pl={1} fontSize={16}>My Account</Box>
-                                </Link>
-                                <Link as={ReachLink} to="/logout" width="full"
-                                    my={1} p={2} display="flex" alignItems="end"
-                                    justifyContent="start" _hover={{
-                                        background: "gray.100",
-                                        color: "cyan.500",
-                                    }}>
-                                    <Box pl={1} fontSize={16}>Logout</Box>
-                                </Link>
-                            </PopoverBody>
-                        </PopoverContent>
-                    </Popover>
-                }
-                
+                    <>
+                        <SearchUsers/>
+                        <Popover>
+                            <PopoverTrigger>
+                                <IconButton variant="ghost" borderRadius="full" p={0}>
+                                    <Avatar
+                                    name={auth.user ? auth.user.username : ""}  
+                                    size="sm"
+                                    borderRadius="full"/>
+                                </IconButton>
+                            </PopoverTrigger>
+                            <PopoverContent borderRadius={0} width="sm">
+                                <PopoverBody>
+                                    <Link as={ReachLink} to={`/profile/${auth.user._id}`} width="full"
+                                        my={1} p={2} display="flex" alignItems="end"
+                                        justifyContent="start" _hover={{
+                                            background: "gray.100",
+                                            color: "cyan.500",
+                                        }}>
+                                        <Box pl={1} fontSize={16}>My Account</Box>
+                                    </Link>
+                                    <Link as={ReachLink} to="/logout" width="full"
+                                        my={1} p={2} display="flex" alignItems="end"
+                                        justifyContent="start" _hover={{
+                                            background: "gray.100",
+                                            color: "cyan.500",
+                                        }}>
+                                        <Box pl={1} fontSize={16}>Logout</Box>
+                                    </Link>
+                                </PopoverBody>
+                            </PopoverContent>
+                        </Popover>
+                    </>
+                }               
             </Flex>
         </Flex>
     );

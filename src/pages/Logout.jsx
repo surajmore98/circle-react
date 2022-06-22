@@ -4,7 +4,7 @@ import { updateToken, updateUser } from "../store/AuthSlice";
 import { LOG_IN } from "../helper/Constant";
 import { Button, Flex, Heading } from "@chakra-ui/react";
 import { useNavigator } from "../helper/NavigateHelper";
-import { removeLocalStorageToken, removeLocalStorageUser } from "../helper/LocalStorageHelper";
+import { removeLocalStorageData } from "../helper/LocalStorageHelper";
 
 export const Logout = () => {
     const dispatch = useDispatch();
@@ -13,8 +13,7 @@ export const Logout = () => {
     useEffect(() => {
         dispatch(updateToken(""));
         dispatch(updateUser({ }));
-        removeLocalStorageUser();
-        removeLocalStorageToken();
+        removeLocalStorageData();
     }, []);
 
     const navigateToSignIn = () => navigateTo(LOG_IN);

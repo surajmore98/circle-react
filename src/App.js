@@ -5,6 +5,7 @@ import "react-toastify/dist/ReactToastify.min.css";
 import "./App.css";
 import { Toast } from "./components/Toast";
 import { getLocalStorageToken, getLocalStorageUser } from "./helper/LocalStorageHelper";
+import { NotFound } from "./pages/NotFound";
 import { Login, Logout, Register } from "./pages/Pages";
 import { updateToken, updateUser } from "./store/AuthSlice";
 
@@ -29,6 +30,7 @@ function App() {
         <Route path="/login" element={<Login/>} />
         <Route path="/register" element={<Register/>} />
         <Route path="/logout" element={<Logout/>} />
+        <Route path="*" element={<NotFound/>} />
       </Routes>
       <Toast/>
     </>   
