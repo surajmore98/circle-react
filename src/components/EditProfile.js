@@ -22,6 +22,7 @@ export const EditProfile = () => {
     };
 
     const handleInputChange = (value, type) => {
+        console.log(value);
         switch(type) {
             case "FIRSTNAME":
                 setUserDetail({ ...userDetail, firstName: value});
@@ -60,7 +61,7 @@ export const EditProfile = () => {
                     <PopoverBody>
                         <Flex flexDirection="column">
                             <Flex flexDirection="column" justifyContent="center" alignItems="center" position="relative">
-                                <Avatar name='Dan Abrahmov' src='https://bit.ly/dan-abramov' display="flex" alignSelf="center" size='xl'/>
+                                <Avatar name={user.username} src={userDetail.profileImage ? URL.createObjectURL(userDetail.profileImage) : ""} display="flex" alignSelf="center" size='xl'/>
                                 <Button m={2} fontSize="0.875rem" onClick={imageUploadHandler}>Upload Photo</Button>
                                 <Input type="file" display="none" ref={imageUploader} onChange={(e) => handleInputChange(e.target.files[0], "PROFILEPHOTO")}/> 
                             </Flex>      
