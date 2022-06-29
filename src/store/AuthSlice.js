@@ -1,11 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { loginThunk, registerThunk } from './thunks/AuthThunk';
 import { addBookmarkThunk, getBookmarksThunk, removeBookmarkThunk } from './thunks/BookmarkThunk';
-import { followThunk, unfollowThunk } from './thunks/UserThunk';
+import { editUserThunk, followThunk, unfollowThunk } from './thunks/UserThunk';
 
 const initialState = {
   token: "",
   user: { },
+  followUser: { },
   bookmarks: [],
   isLoading: false
 }
@@ -80,6 +81,7 @@ export const AuthSlice = createSlice({
     },
     [followThunk.fulfilled]: (state, action) => {
       state.user = action?.payload?.user;
+      state.followUser = action?.payload?.followUser;
       state.isLoading = false;
     },
     [followThunk.rejected]: (state) => {
@@ -90,9 +92,20 @@ export const AuthSlice = createSlice({
     },
     [unfollowThunk.fulfilled]: (state, action) => {
       state.user = action?.payload?.user;
+      state.followUser = action?.payload?.followUser;
       state.isLoading = false;
     },
     [unfollowThunk.rejected]: (state) => {
+      state.isLoading = false;
+    },
+    [editUserThunk.pending]: (state) => {
+      state.isLoading = true;
+    },
+    [editUserThunk.fulfilled]: (state, action) => {
+      state.user = action?.payload?.user;
+      state.isLoading = false;
+    },
+    [editUserThunk.rejected]: (state) => {
       state.isLoading = false;
     }
   }

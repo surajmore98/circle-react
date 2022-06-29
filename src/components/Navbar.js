@@ -1,8 +1,8 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { FaMoon, FaSun } from "react-icons/fa";
-import { useColorMode, Box, IconButton, Button, Flex, Popover, PopoverTrigger
-,Portal, PopoverContent, PopoverBody, Avatar, Link, Heading } from "@chakra-ui/react";
+import { useColorMode, Box, IconButton, Flex, Popover, PopoverTrigger
+,PopoverContent, PopoverBody, Avatar, Link, Heading } from "@chakra-ui/react";
 import { SearchUsers } from "./SearchUsers";
 import { Link as ReachLink } from "react-router-dom";
 import { useNavigator } from "../helper/NavigateHelper";
