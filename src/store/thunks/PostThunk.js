@@ -2,7 +2,6 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import { toast } from "react-toastify";
 import { StatusCode } from "../../helper/StatusCode";
 import { getAllPosts, insertPost, removePost, updatePostDetail } from "../../services/PostService";
-import { updatePost } from "../PostSlice";
 
 export const getPostsThunk = createAsyncThunk(
     "/posts",

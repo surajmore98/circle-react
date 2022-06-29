@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { toast } from "react-toastify";
-import { followUser, getUsers, unfollowUser } from "../../services/UserService";
+import { editUser, followUser, getUsers, unfollowUser } from "../../services/UserService";
 
 export const getUsersThunk = createAsyncThunk(
     "/users",
@@ -23,6 +23,7 @@ export const followThunk = createAsyncThunk(
         try
         {
             const response = await followUser(request);
+            toast.success("You succesfully Followed User.");
             return response.data;
         }
         catch (error) {
@@ -38,6 +39,7 @@ export const unfollowThunk = createAsyncThunk(
         try
         {
             const response = await unfollowUser(request);
+            toast.success("You succesfully Unfollowed User.");
             return response.data;
         }
         catch (error) {
@@ -46,3 +48,18 @@ export const unfollowThunk = createAsyncThunk(
         }
     }
 );
+
+export const editUserThunk = createAsyncThunk(
+    "/users/edit",
+    async (request, { rejectWithValue }) => {
+        try
+        {
+            const response = await editUser(request);
+            return response.data;
+        }
+        catch (error) {
+            toast.error("Error While Updating User Details");
+            return rejectWithValue(error.response);
+        }
+    }
+)

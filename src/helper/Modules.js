@@ -1,6 +1,6 @@
 export const Modules = {
     PROFILE: "profile",
-    NOTIFICATION: "notification",
+    LIKE: "like",
     BOOKMARK: "bookmark",
     EXPLORE: "explore",
     HOME: ""

@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { FormField } from "../components/FormField";
 import { Loader } from "../components/Loader";
 import { Navbar } from "../components/Navbar";
-import { HOME, SIGN_UP } from "../helper/Constant";
+import { GUESTCREDENTIALS, HOME, SIGN_UP } from "../helper/Constant";
 import { setLocalStorageToken, setLocalStorageUser } from "../helper/LocalStorageHelper";
 import { useNavigator } from "../helper/NavigateHelper";
 import { LOGIN_CREDENTIAL_DEFAULT_VALUE } from "../helper/StateDefaultValues";
@@ -27,7 +27,6 @@ export const Login = () => {
       if(rememberMeFlag && token && user && Object.keys(user).length) {
         setLocalStorageToken(token);
         setLocalStorageUser(user);
-        setRememberMe(false);
       }
     }
 
@@ -35,9 +34,16 @@ export const Login = () => {
     const onPasswordChange = (event) => setCredentials({...credential, password: event.target.value});
     const toggleRememberMe = () => setRememberMe(!rememberMe);
 
-    useEffect(() => {
-      updateLocalStorage(token, user, rememberMe);
-      token && navigateTo(HOME);
+    const guestLogin = () => {
+      dispatch(loginThunk({ username: GUESTCREDENTIALS.username, password: GUESTCREDENTIALS.password }));
+    }
+
+    updateLocalStorage(token, user, rememberMe);
+
+    useEffect(() => { 
+      if(token) {
+        navigateTo(HOME);
+      }
     });
     
     return (
@@ -58,7 +64,10 @@ export const Login = () => {
                 <Button type="submit" colorScheme="cyan" width="full" mt={4} variant="solid" borderRadius={0}>
                     Sign In
                 </Button>
-                <Button variant="outline" colorScheme="cyan" width="full" mt={4} borderRadius={0} onClick={() => navigateTo(SIGN_UP)}>
+                <Button variant="outline" colorScheme="cyan" width="full" mt={4} borderRadius={0} onClick={guestLogin}>
+                    Guest Login
+                </Button>
+                <Button variant="ghost" colorScheme="cyan" width="full" mt={4} borderRadius={0} onClick={() => navigateTo(SIGN_UP)}>
                     Create New Account
                 </Button>
               </form>

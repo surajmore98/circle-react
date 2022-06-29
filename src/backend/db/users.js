@@ -14,6 +14,19 @@ export const users = [
     password: "adarshBalika123",
     createdAt: formatDate(),
     updatedAt: formatDate(),
+    bio: "",
+    profileImage: ""
+  },
+  {
+    _id: "631a82cf-63d1-4b1c-bf26-5b0b14fbef55",
+    firstName: "guest",
+    lastName: "user",
+    username: "test",
+    password: "test123",
+    createdAt: formatDate(),
+    updatedAt: formatDate(),
+    bio: "",
+    deletetoken: "",
     profileImage: ""
   },
   {
@@ -24,6 +37,8 @@ export const users = [
     password: "shubhamsoni123",
     createdAt: formatDate(),
     updatedAt: formatDate(),
+    bio: "",
+    deletetoken: "",
     profileImage: ""
   },
   {
@@ -34,6 +49,8 @@ export const users = [
     password: "sohamshah123",
     createdAt: formatDate(),
     updatedAt: formatDate(),
-    profileImage: ""
+    bio: "",
+    profileImage: "",
+    deletetoken: ""
   }
 ];
