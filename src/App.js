@@ -17,6 +17,7 @@ import { LayoutWrapper } from "./wrappers/LayoutWrapper";
 import { RequireAuth } from "./wrappers/RequireAuth";
 import { NotFound } from "./pages/NotFound";
 import { Like } from "./pages/Like";
+import { AuthWrapper } from "./wrappers/AuthWrapper";
 
 function App() {
   const dispatch = useDispatch();
@@ -37,9 +38,30 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/login" element={<Login/>} />
-        <Route path="/register" element={<Register/>} />
-        <Route path="/logout" element={<Logout/>} />
+        <Route 
+          path="/login" 
+          element={
+            <AuthWrapper>
+              <Login/>
+            </AuthWrapper>
+          }
+        />
+        <Route 
+          path="/register" 
+          element={
+            <AuthWrapper>
+              <Register/>
+            </AuthWrapper>
+          }
+        />
+        <Route 
+          path="/logout" 
+          element={
+            <AuthWrapper>
+              <Logout/>
+            </AuthWrapper>
+          }
+        />
         <Route 
           path="/profile/:id"
           element={

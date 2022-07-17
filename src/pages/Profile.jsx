@@ -4,13 +4,14 @@ import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { Post } from "../components/Post";
 import { followThunk, unfollowThunk } from "../store/thunks/UserThunk";
+import { useCustomColor } from "../helper/CustomColor";
 
 export const Profile = () => {
     const { id } = useParams();
     const dispatch = useDispatch();
     const { user, token, followUser } = useSelector((state) => state.auth);
     const { users, posts } = useSelector((state) => state.post);
-
+    const { themeColor } = useCustomColor();
     const isLoggedUser = id  === user._id;
     const profileData = !isLoggedUser ?
          Object.getOwnPropertyNames(followUser).length ? followUser 
@@ -38,7 +39,7 @@ export const Profile = () => {
                     isLoggedUser ? <EditProfile/>
                     : 
                     <Button fontSize="0.75rem" height="2rem" borderRadius={0} m={1}
-                    colorScheme="cyan" variant="outline" onClick={() => toggleFollow(!isFollowing)}
+                    colorScheme={themeColor} variant="outline" onClick={() => toggleFollow(!isFollowing)}
                     >{isFollowing ? "Unfollow" : "Follow" }</Button>           
                 }                
                 <Text textAlign="center">{profileData.bio}</Text>
@@ -58,7 +59,7 @@ export const Profile = () => {
                 </Flex>
             </Flex>
             <Flex flexDirection="column" flexGrow={1} alignItems="center">
-                <Heading fontSize="1.5rem" color="cyan.400" textAlign="center" py={4}>Your Posts</Heading>
+                <Heading fontSize="1.5rem" color={themeColor} textAlign="center" py={4}>Posts</Heading>
                 {
                     myPosts && myPosts.map((item, index) => <Post key={index} data={item} />)
                 }

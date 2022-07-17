@@ -1,15 +1,15 @@
-import { Flex, Text, Avatar, useColorMode, IconButton, Box } from "@chakra-ui/react";
+import { Flex, Text, Avatar, IconButton, Box } from "@chakra-ui/react";
 import { useEffect } from "react";
 import { FiPlusCircle } from "react-icons/fi";
 import { useDispatch, useSelector } from "react-redux";
+import { useCustomColor } from "../helper/CustomColor";
 import { followThunk, getUsersThunk } from "../store/thunks/UserThunk";
 
 export const UserList = () => {
-    const { colorMode } = useColorMode();
+    const { bgColor } = useCustomColor();
     const { user, token } = useSelector((state) => state.auth);
     const dispatch = useDispatch();
     const { users } = useSelector((state) => state.post);
-    const bgColor = colorMode === "dark" ? "gray.500" : "gray.100";
 
     const followUsers = user ? 
         users.filter(x => x._id !== user._id &&
@@ -44,7 +44,7 @@ export const UserList = () => {
                                     <Text fontSize="0.75rem" fontWeight="bold">{`${item.firstName} ${item.lastName}`}</Text>
                                     <Text fontSize="0.75rem" color="gray.400">@{item.username}</Text>
                                 </Flex>
-                                <IconButton icon={<FiPlusCircle/>} onClick={() => follow(item._id)}></IconButton>
+                                <IconButton icon={<FiPlusCircle/>} onClick={() => follow(item._id)} background={bgColor}></IconButton>
                             </Flex>
                         )
                     })

@@ -5,7 +5,7 @@ export const SideNavAction = ({data}) => {
     const { active, module, icon, title } = data;
     return (
         <Link as={ReachLink} to={`/${module}`} width={{sm: "max-content", md: "full" }}
-            my={2} p={2} fontSize="1rem"
+            my={2} p={2} fontSize="1rem" fontWeight={700} letterSpacing={1}
             display="flex" alignItems="center" justifyContent="start"
             color={ active && "cyan.500"}
             _hover={{

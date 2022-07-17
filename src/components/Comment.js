@@ -1,4 +1,4 @@
-import { Flex, Avatar, Text, useColorMode } from "@chakra-ui/react";
+import { Flex, Avatar, Text } from "@chakra-ui/react";
 import { FiHeart } from "react-icons/fi";    
 import { StatusCode } from "../helper/StatusCode";
 import { ButtonIcon } from "../components/ButtonIcon";
@@ -6,14 +6,14 @@ import { FaHeart, FaTrash } from "react-icons/fa";
 import { useSelector } from "react-redux";
 import { downvotePostComment, removePostComment, upvotePostComment } from "../services/CommentService";
 import { toast } from "react-toastify";
+import { useCustomColor } from "../helper/CustomColor";
 
 export const Comment = ({ data, postId, action }) => {
     const { username, text, votes, _id} = data;
     const { token, user } = useSelector((state) => state.auth);
     const { users } = useSelector((state) => state.post);
-    const { colorMode } = useColorMode();
+    const { bgColor } = useCustomColor();
     
-    const bgColor = colorMode === "dark" ? "gray.500" : "gray.100";
     const likeCount = votes?.upvotedBy?.length;
     const isLiked = likeCount && votes.upvotedBy.find(x => x._id === user._id);
     const commentUser = users.find(x => x.username === username); 

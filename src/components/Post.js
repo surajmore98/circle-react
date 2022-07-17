@@ -1,7 +1,7 @@
 import { FiMessageSquare, FiBookmark, FiHeart } from "react-icons/fi";
 import { FaHeart, FaBookmark } from "react-icons/fa";
 import { Flex, Button, Avatar, Text, IconButton,
-    Input, Box, Image, useColorMode } from "@chakra-ui/react";
+    Input, Box, Image } from "@chakra-ui/react";
 import { Comment } from "./Comment";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -15,14 +15,15 @@ import { deletePostThunk } from "../store/thunks/PostThunk";
 import { addLikeThunk, removeLikeThunk } from "../store/thunks/LikeThunk";
 import { addBookmarkThunk, removeBookmarkThunk } from "../store/thunks/BookmarkThunk";
 import { toast } from "react-toastify";
+import { useCustomColor } from "../helper/CustomColor";
 
 export const Post = ({ data }) => {
     const { token, user:authUser, bookmarks } = useSelector((state) => state.auth);
     const { users } = useSelector((state) => state.post);
     const { _id, comments, content, media, username, likes } = data;
-    const { colorMode } = useColorMode();
+    const { bgColor, themeColor } = useCustomColor();
     const dispatch = useDispatch();
-    const bgColor = colorMode === "dark" ? "gray.500" : "gray.100";
+
     const user = users.find(x => x.username === username);
     const [comment, setComment] = useState({ isOpen: false, value: "", comments: []});
 
@@ -119,10 +120,10 @@ export const Post = ({ data }) => {
                 <Flex flexDirection="column" width="full">
                     <Flex width="full" px={1} py={2}>
                         <Flex flexGrow={1} alignItems="start">
-                            <Input width="full" placeholder="Enter Comment" borderRadius={0} fontSize="0.75rem" height="1.75rem" variant="flushed" background="white" pl={1}  onChange={handleCommentChange} value={comment.value}/>
+                            <Input width="full" placeholder="Enter Comment" borderRadius={0} fontSize="0.75rem" height="1.75rem" variant="flushed" background={bgColor} pl={1}  onChange={handleCommentChange} value={comment.value}/>
                             <EmojiInput action={emojiInputHandler} size={16} height="1.75rem"/>
                         </Flex>
-                        <Button colorScheme="cyan" borderRadius={0} fontSize="0.75rem" height="1.75rem" onClick={addComment}>Comment</Button>
+                        <Button colorScheme={themeColor} borderRadius={0} fontSize="0.75rem" height="1.75rem" onClick={addComment}>Comment</Button>
                     </Flex>
                     {
                         comment.comments && comment.comments.map((data, index) => <Comment data={data} postId={_id} action={setComment} key={index}/>)
