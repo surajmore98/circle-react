@@ -9,6 +9,7 @@ export const insertPost = async ({ content, image, token}) => {
     let imageResult;
     if(image) {
         imageResult = await uploadImage(image);
+        console.log(imageResult);
     }
 
     return await axios.post("api/posts" , {

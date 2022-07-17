@@ -1,29 +1,30 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { FaMoon, FaSun } from "react-icons/fa";
-import { useColorMode, Box, IconButton, Flex, Popover, PopoverTrigger
+import { Box, IconButton, Flex, Popover, PopoverTrigger
 ,PopoverContent, PopoverBody, Avatar, Link, Heading } from "@chakra-ui/react";
 import { SearchUsers } from "./SearchUsers";
 import { Link as ReachLink } from "react-router-dom";
 import { useNavigator } from "../helper/NavigateHelper";
 import { HOME } from "../helper/Constant";
+import { useCustomColor } from "../helper/CustomColor";
 
 export const Navbar = () => {
-    const { colorMode, toggleColorMode } = useColorMode();
+    const { isDark, toggleColorMode } = useCustomColor();
     const auth = useSelector((state) => state.auth);
     const navigateTo = useNavigator();
     
     return (
         <Flex p={1} width="full" justifyContent="space-between" alignItems="center"
-         mb={4} borderBottomWidth={1} background="cyan.500" fontSize={24}
+         mb={4} borderBottomWidth={1} background={ isDark ? "black" : "white" } fontSize={24}
          height="3.5rem" position="fixed" top={0} zIndex="sticky" gap={4}>
-            <Heading cursor="pointer" onClick={() => navigateTo(HOME)}>Circle</Heading>
+            <Heading cursor="pointer" onClick={() => navigateTo(HOME)} color="cyan">Circle</Heading>
             <Flex justifyContent="flex-end" alignItems="center">
                 <IconButton
-                    aria-label={ colorMode === "dark" ? "light" : "dark" }
+                    aria-label={ isDark ? "light" : "dark" }
                     bg="transparent"
                     fontSize={20}
-                    icon={ colorMode === "dark" ? <FaSun /> : <FaMoon /> }
+                    icon={ isDark ? <FaSun /> : <FaMoon /> }
                     onClick={toggleColorMode}
                     borderRadius="full"
                 />

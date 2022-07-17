@@ -18,7 +18,7 @@ export const posts = [
       likedBy: [],
       dislikedBy: [],
     },
-    username: "adarshbalika",
+    username: "FreshSmash",
     createdAt: formatDate(),
     updatedAt: formatDate(),
     comments: [
@@ -72,6 +72,42 @@ export const posts = [
           downvotedBy: [],
         },
       },
+    ],
+    createdAt: formatDate(),
+    updatedAt: formatDate(),
+  },
+  {
+    _id: "afbc6b4c-4359-4013-afaa-4435373798c4",
+    media: "https://res.cloudinary.com/dxe21vniv/image/upload/v1658082324/demo/la35xxzukdzzlaa9swjz.jpg",
+    deletetoken: "b295951819bc458bbee7615cb459c8fd1a4e33c1fd1f5491cc7ba148e9b701633571df8d4ee4a276c54314b2fd302bac137e40cf8d603abe946ae04f1b3c2a1468f89ca24ffd0cd5c5b386112120a011947080eff90f151294b010a073901f08509051d80fa4d61fdd40c9414b0706db2a6a2fe34a1c0fa18fb6e19b3a04cb39d17943626d3dc0cc12768ca4b5925f3b",
+    content:
+      "New Collection.",
+    likes: {
+      likeCount: 0,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    username: "shubhamsoni",
+
+    comments: [
+    ],
+    createdAt: formatDate(),
+    updatedAt: formatDate(),
+  },
+  {
+    _id: "afbc6b4c-4359-4013-afaa-4435373798c4",
+    media: "",
+    deletetoken: "",
+    content:
+      "Good Morning!!",
+    likes: {
+      likeCount: 0,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    username: "shubhamsoni",
+
+    comments: [
     ],
     createdAt: formatDate(),
     updatedAt: formatDate(),
