@@ -53,7 +53,7 @@ export const CreatePost = () => {
     return (
         <Flex p={4} background={bgColor} width={{ base: "19rem", md: "22rem"}}>
             <Flex flexDirection="column" justifyItems="center" width="full">
-                <Textarea placeholder="write something intersting..." borderRadius={0} background="white" resize="none" color="black" value={content.text} onChange={ContentChangeHandler} width="auto"></Textarea>
+                <Textarea placeholder="Write something intersting..." borderRadius={0} background="white" resize="none" color="black" value={content.text} onChange={ContentChangeHandler} width="auto"></Textarea>
 
                 { content.image !== null &&
                     <Box position="relative" width="auto" mt={2}>

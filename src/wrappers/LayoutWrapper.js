@@ -28,11 +28,11 @@ export const LayoutWrapper = ({ children }) => {
         <>
             <Navbar/>
             <Flex width="full" background={layoutColor}>
-                <Flex justifyContent="center" width={{ base: "15%", sm: "20%", lg: "25%" }} minHeight="100vh" borderRightWidth={1}>
+                <Flex justifyContent="center" width={{ base: "15%", sm: "20%", lg: "25%" }} minHeight="200vh" borderRightWidth={1}>
                     <SideNav/>
                 </Flex>
                 <Flex width={{ base: "85%", sm: "80%", lg: "75%" }} justifyContent={{ base: "center", md: "start" }} mt="5rem">
-                    <Flex mr={{ base: 0 , md: 8 }} justifyContent="center" width={{ base: "100%", md: "60%" }} >
+                    <Flex mr={{ base: 0 , md: 8 }} justifyContent="center" width={{ base: "100%", md: "60%" }}>
                         {children}
                     </Flex>
                     <UserList/>
