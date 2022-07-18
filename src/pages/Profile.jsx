@@ -36,15 +36,14 @@ export const Profile = () => {
                 <Text fontSize="1.25rem" fontWeight="bold">{profileData.firstName}{" "}{profileData.lastName}</Text>
                 <Text fontSize="1rem" color="gray.400">@{profileData.username}</Text>
                 {
-                    isLoggedUser ? <EditProfile/>
-                    : 
+                    isLoggedUser ? <EditProfile/> :
                     <Button fontSize="0.75rem" height="2rem" borderRadius={0} m={1}
                     colorScheme={themeColor} variant="outline" onClick={() => toggleFollow(!isFollowing)}
                     >{isFollowing ? "Unfollow" : "Follow" }</Button>           
                 }                
                 <Text textAlign="center">{profileData.bio}</Text>
             </Flex>
-            <Flex justifyContent="space-evenly" alignItems="center" my="1rem">
+            <Flex justifyContent="space-evenly" alignItems="center" mt="1rem">
                 <Flex flexDirection="column" justifyContent="center" alignItems="center" fontSize={16}>
                     <Text fontWeight="bold">{profileData.following.length}</Text>
                     <Text fontWeight="bold">Following</Text>

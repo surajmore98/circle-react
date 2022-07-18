@@ -6,6 +6,6 @@ export const useCustomColor = () => {
     const themeColor = "cyan";
     const fontColor = isDark ? "white" : "black";
     const bgColor = isDark ? "black" : "white";
-    const layoutColor = isDark ? "gray.600" : "gray.100";
+    const layoutColor = isDark ? "gray.800" : "gray.100";
     return { isDark, themeColor, toggleColorMode, fontColor, bgColor, layoutColor }
 }
