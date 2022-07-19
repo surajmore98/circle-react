@@ -22,7 +22,6 @@ export const EditProfile = () => {
     };
 
     const handleInputChange = (value, type) => {
-        console.log(value);
         switch(type) {
             case "FIRSTNAME":
                 setUserDetail({ ...userDetail, firstName: value});

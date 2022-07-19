@@ -7,7 +7,6 @@ export const Explore = () => {
     const { posts } = useSelector((state) => state.post);
     const { user } = useSelector((state) => state.auth);
 
-    
     const [ filter, setFilter] = useState("");
     const [postList, setPostList] = useState(posts || []);
 
@@ -23,7 +22,7 @@ export const Explore = () => {
                 setPostList([...posts].sort((x, y) => y.likes.likeCount - x.likes.likeCount));
                 break;
             case "latest":
-                setPostList([...posts].sort((x, y) => y.createdAt - x.createdAt));
+                setPostList([...posts].sort((x, y) => new Date(y.createdAt) - new Date(x.createdAt)));
                 break;
             case "forme":
                 setPostList(posts.filter(x => x.username === user.username || user.following.includes(x.username)));

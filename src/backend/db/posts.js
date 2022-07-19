@@ -19,8 +19,8 @@ export const posts = [
       dislikedBy: [],
     },
     username: "FreshSmash",
-    createdAt: formatDate(),
-    updatedAt: formatDate(),
+    createdAt: "2022-05-19T23:27:39+05:30",
+    updatedAt: "2022-05-19T23:27:39+05:30",
     comments: [
       {
         _id: "a8b63602-3f71-4911-8df7-6faed860fad3",
@@ -73,8 +73,8 @@ export const posts = [
         },
       },
     ],
-    createdAt: formatDate(),
-    updatedAt: formatDate(),
+    createdAt: "2022-06-18T23:27:39+05:30",
+    updatedAt: "2022-06-18T23:27:39+05:30",
   },
   {
     _id: "afbc6b4c-4359-4013-afaa-4435373798c4",
@@ -91,11 +91,11 @@ export const posts = [
 
     comments: [
     ],
-    createdAt: formatDate(),
-    updatedAt: formatDate(),
+    createdAt: "2022-07-18T23:27:39+05:30",
+    updatedAt: "2022-07-18T23:27:39+05:30",
   },
   {
-    _id: "afbc6b4c-4359-4013-afaa-4435373798c4",
+    _id: "afbc6b4c-4359-4013-afaa-4435673798c4",
     media: "",
     deletetoken: "",
     content:
@@ -109,7 +109,7 @@ export const posts = [
 
     comments: [
     ],
-    createdAt: formatDate(),
-    updatedAt: formatDate(),
+    createdAt: "2022-07-19T23:27:39+05:30",
+    updatedAt: "2022-07-19T23:27:39+05:30",
   },
 ];

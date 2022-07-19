@@ -12,7 +12,7 @@ export const Like = () => {
         <Flex flexDirection="column" flexGrow={1} alignItems="center">
             <Heading fontSize="1.5rem" color="cyan.600" my={4} >My Likes</Heading>
             {
-                likedPosts && likedPosts.map((item, index) => <Post key={index} data={item} />)
+                likedPosts && likedPosts.sort((x,y) => new Date(y.createdAt) - new Date(x.createdAt)).map((item, index) => <Post key={index} data={item} />)
             }
         </Flex>
     );

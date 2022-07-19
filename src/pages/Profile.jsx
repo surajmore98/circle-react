@@ -60,7 +60,7 @@ export const Profile = () => {
             <Flex flexDirection="column" flexGrow={1} alignItems="center">
                 <Heading fontSize="1.5rem" color={themeColor} textAlign="center" py={4}>Posts</Heading>
                 {
-                    myPosts && myPosts.map((item, index) => <Post key={index} data={item} />)
+                    myPosts && myPosts.sort((x,y) => new Date(y.createdAt) - new Date(x.createdAt)).map((item, index) => <Post key={index} data={item} />)
                 }
             </Flex>
         </Flex>    
