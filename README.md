@@ -2,8 +2,9 @@
     <h1>Circle</h1>
     <p>Circle is a Social Media App where you can share posts and experience.</p>
 </div>
+
 ## How to run the app locally?
-```
+```bash
 $ git clone https://github.com/surajmore98/circle-react.git
 $ cd circle-react
 $ npm install
@@ -50,6 +51,3 @@ $ npm start
 
 ## Live Link
 [circle](https://charcoalcircle.netlify.app)
-
-## Demo
-[Demo](https://user-images.githubusercontent.com/29055479/179958958-09bb0ea3-6c52-41ea-a10a-59720b8d9025.webm)
