@@ -18,6 +18,7 @@ import { RequireAuth } from "./wrappers/RequireAuth";
 import { NotFound } from "./pages/NotFound";
 import { Like } from "./pages/Like";
 import { AuthWrapper } from "./wrappers/AuthWrapper";
+import { ScrollTop } from "./components/ScrollTop";
 
 function App() {
   const dispatch = useDispatch();
@@ -114,7 +115,7 @@ function App() {
         />
         <Route path="*" element={<NotFound/>} />
       </Routes>
-      
+      <ScrollTop/>
       <Toast/>
     </>   
   );

@@ -35,6 +35,7 @@ export const Login = () => {
     const toggleRememberMe = () => setRememberMe(!rememberMe);
 
     const guestLogin = () => {
+      setCredentials({ username: GUESTCREDENTIALS.username, password: GUESTCREDENTIALS.password });
       dispatch(loginThunk({ username: GUESTCREDENTIALS.username, password: GUESTCREDENTIALS.password }));
     }
 

@@ -24,8 +24,10 @@ export const AuthWrapper = ({ children }) => {
                         { children }
                     </Flex>
                 </Box>
-                <Flex width={{ sm: "0", md: "50%" }} background={layoutColor} justifyContent="center" alignItems="center">
-                    <Image src="/landing_image.svg" objectFit="fill" height="20rem" width="20rem"/>
+                <Flex direction="column" alignItems="center" width={{ sm: "0", md: "50%" }} background={layoutColor} justifyContent="center">
+                    <Image src="/landing_image.svg" objectFit="fill" height="15rem" width="20rem" mb="4"/>
+                    <Heading size="md" color="cyan.600">We Are Connecting You With The Digital Life,</Heading>
+                    <Heading size="md" color="cyan.600">Let’s discover the new People with us.</Heading>
                 </Flex>
             </Flex>
         </>
