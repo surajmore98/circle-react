@@ -1,6 +1,7 @@
 import { Flex, Heading } from "@chakra-ui/react";
 import { useSelector } from "react-redux";
 import { CreatePost } from "../components/CreatePost";
+import { NoPosts } from "../components/NoPosts";
 import { Post } from "../components/Post";
 
 export const Home = () => {
@@ -12,7 +13,8 @@ export const Home = () => {
             <CreatePost/>
             <Heading fontSize={24} color="cyan.600" my={4}>Latest Posts</Heading>
             {
-                postList && postList.sort((x,y) => y.createdAt - x.createdAt).map((item, index) => <Post key={index} data={item} />)
+                postList && postList.length ? postList.sort((x,y) => y.createdAt - x.createdAt).map((item, index) => <Post key={index} data={item} />)
+                : <NoPosts/>
             }
         </Flex>
     ); 

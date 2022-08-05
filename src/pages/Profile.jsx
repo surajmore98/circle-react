@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Post } from "../components/Post";
 import { followThunk, unfollowThunk } from "../store/thunks/UserThunk";
 import { useCustomColor } from "../helper/CustomColor";
+import { NoPosts } from "../components/NoPosts";
 
 export const Profile = () => {
     const { id } = useParams();
@@ -64,7 +65,8 @@ export const Profile = () => {
             <Flex flexDirection="column" flexGrow={1} alignItems="center">
                 <Heading fontSize="1.5rem" color={themeColor} textAlign="center" py={4}>Posts</Heading>
                 {
-                    myPosts && myPosts.sort((x,y) => new Date(y.createdAt) - new Date(x.createdAt)).map((item, index) => <Post key={index} data={item} />)
+                    myPosts && myPosts.length ? myPosts.sort((x,y) => new Date(y.createdAt) - new Date(x.createdAt)).map((item, index) => <Post key={index} data={item} />)
+                    : <NoPosts/>
                 }
             </Flex>
         </Flex>    
