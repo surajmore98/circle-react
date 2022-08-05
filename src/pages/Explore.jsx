@@ -1,7 +1,9 @@
 import { Post } from "../components/Post";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { Button, Flex } from "@chakra-ui/react";
+import { Button, Flex, Heading } from "@chakra-ui/react";
+import { useCustomColor } from "../helper/CustomColor";
+import { NoPosts } from "../components/NoPosts";
 
 export const Explore = () => {
     const { posts } = useSelector((state) => state.post);
@@ -9,6 +11,7 @@ export const Explore = () => {
 
     const [ filter, setFilter] = useState("");
     const [postList, setPostList] = useState(posts || []);
+    const { themeColor } = useCustomColor();
 
     useEffect(() => {
         sortPosts(filter);
@@ -24,8 +27,8 @@ export const Explore = () => {
             case "latest":
                 setPostList([...posts].sort((x, y) => new Date(y.createdAt) - new Date(x.createdAt)));
                 break;
-            case "mytweets":
-                setPostList(posts.filter(x => x.username === user.username || user.following.includes(x.username)));
+            case "myposts":
+                setPostList(posts.filter(x => x.username === user.username));
                 break;
             default:
                 break;
@@ -35,12 +38,13 @@ export const Explore = () => {
     return(
         <Flex flexDirection="column" flexGrow={1} alignItems="center" gap={4}>
             <Flex justifyContent="space-evenly" width="full">
-                <Button colorScheme='cyan' variant='ghost' onClick={() => updateFilterValue("latest")}>Latest</Button>
-                <Button colorScheme='cyan' variant='ghost' onClick={() => updateFilterValue("trending")}>Trending</Button>
-                <Button colorScheme='cyan' variant='ghost' onClick={() => updateFilterValue("mytweets")}>My Tweets</Button>
+                <Button colorScheme={themeColor} variant='ghost' onClick={() => updateFilterValue("latest")}>Latest</Button>
+                <Button colorScheme={themeColor} variant='ghost' onClick={() => updateFilterValue("trending")}>Trending</Button>
+                <Button colorScheme={themeColor} variant='ghost' onClick={() => updateFilterValue("myposts")}>My Posts</Button>
             </Flex>
             {
-                postList && postList.map((item, index) => <Post key={index} data={item} />)
+                postList && postList.length ? postList.map((item, index) => <Post key={index} data={item} />)
+                : <NoPosts/>
             }
         </Flex>
     );
