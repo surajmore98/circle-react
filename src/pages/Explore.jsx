@@ -24,7 +24,7 @@ export const Explore = () => {
             case "latest":
                 setPostList([...posts].sort((x, y) => new Date(y.createdAt) - new Date(x.createdAt)));
                 break;
-            case "forme":
+            case "mytweets":
                 setPostList(posts.filter(x => x.username === user.username || user.following.includes(x.username)));
                 break;
             default:
@@ -37,7 +37,7 @@ export const Explore = () => {
             <Flex justifyContent="space-evenly" width="full">
                 <Button colorScheme='cyan' variant='ghost' onClick={() => updateFilterValue("latest")}>Latest</Button>
                 <Button colorScheme='cyan' variant='ghost' onClick={() => updateFilterValue("trending")}>Trending</Button>
-                <Button colorScheme='cyan' variant='ghost' onClick={() => updateFilterValue("forme")}>For Me</Button>
+                <Button colorScheme='cyan' variant='ghost' onClick={() => updateFilterValue("mytweets")}>My Tweets</Button>
             </Flex>
             {
                 postList && postList.map((item, index) => <Post key={index} data={item} />)
