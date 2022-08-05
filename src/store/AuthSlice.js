@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 import { loginThunk, registerThunk } from './thunks/AuthThunk';
 import { addBookmarkThunk, getBookmarksThunk, removeBookmarkThunk } from './thunks/BookmarkThunk';
 import { editUserThunk, followThunk, unfollowThunk } from './thunks/UserThunk';
+import { toast } from "react-toastify";
 
 const initialState = {
   token: "",
@@ -33,12 +34,13 @@ export const AuthSlice = createSlice({
       state.token = action.payload?.encodedToken;
       state.user = action.payload?.createdUser;
       state.isLoading = false;
+      toast.success(`${action.payload?.createdUser.firstName} ${action.payload?.createdUser.lastName} successfully Registred!!`);
     },
     [loginThunk.fulfilled]: (state, action) => {
       state.token = action.payload?.encodedToken;
       state.user = action.payload?.foundUser;
       state.isLoading = false;
-      
+      toast.success(`${action.payload?.foundUser.firstName} ${action.payload?.foundUser.lastName} successfully logged in!!`);
     },
     [registerThunk.rejected]: (state, action) => {
       state.isLoading = false;

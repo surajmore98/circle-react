@@ -19,9 +19,9 @@ export const users = [
   },
   {
     _id: "631a82cf-63d1-4b1c-bf26-5b0b14fbef55",
-    firstName: "guest",
-    lastName: "guest",
-    username: "CooCooLoo",
+    firstName: "joe",
+    lastName: "dev",
+    username: "joedev",
     password: "test123",
     createdAt: formatDate(),
     updatedAt: formatDate(),
