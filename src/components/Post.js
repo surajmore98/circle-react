@@ -102,7 +102,7 @@ export const Post = ({ data }) => {
                 <Text fontSize="0.875rem" textAlign="justify" p={1}>
                     {content}
                 </Text>
-                { media && <Image src={media} height="20rem" width="full" objectFit="scaledown" py={1}/>}
+                { media && <Image src={media} height="20rem" width="full" objectFit="cover" py={1}/>}
             </Box>
             <Flex justifyContent="space-between">
                 <Flex flexDirection="row" justifyContent="center" alignItems="center">

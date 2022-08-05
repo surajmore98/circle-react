@@ -12,7 +12,7 @@ export const posts = [
     media: "",
     deletetoken: "",
     content:
-      "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti at.",
+      "Great things are not done by impulse, but by a series of small things brought together. George Eliot",
     likes: {
       likeCount: 0,
       likedBy: [],
@@ -45,7 +45,7 @@ export const posts = [
   {
     _id: "afbc6b4c-4359-4013-afaa-4435337798c4",
     content:
-      "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.",
+      "I do the very best I know how - the very best I can; and I mean to keep on doing so until the end",
     likes: {
       likeCount: 0,
       likedBy: [],
